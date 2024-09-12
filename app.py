@@ -16,7 +16,7 @@ def show_program_name():
 def show_options(): 
     print('1. Cadastrar restaurante')
     print('2. Listar restaurantes')
-    print('3. Ativar restaurante')
+    print('3. Alterar estado do restaurante')
     print('4. Sair\n')
 
 def finish_app():
@@ -32,8 +32,11 @@ def invalid_option():
 
 def show_subtitle(text): 
     os.system('clear')
+    line = '*' * len(text)
+    print(line)
     print(text)
-    print
+    print(line)
+    print()
 
 def register_restaurant():
     show_subtitle('Cadastro de novos restaurantes')
@@ -47,11 +50,12 @@ def register_restaurant():
 def list_restaurants():
     show_subtitle('Listando restaurantes')
 
+    print(f'{'Nome do restaurante'.ljust(22)} | {'Categoria'.ljust(20)} | Status')
     for restaurant in restaurants:
         restaurant_name = restaurant['name']
         restaurant_category = restaurant['category']
-        restaurant_active = restaurant['active']
-        print(f' .{restaurant_name} | {restaurant_category} | {restaurant_active}')
+        restaurant_active = 'Ativo' if restaurant['active'] else 'Desativado'
+        print(f' .{restaurant_name.ljust(20)} | {restaurant_category.ljust(20)} | {restaurant_active}')
 
     back_to_menu()
 
