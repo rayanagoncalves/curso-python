@@ -17,6 +17,7 @@ class Restaurant:
 
 restaurant_praca = Restaurant('Praça', 'Gourmet')
 restaurant_pizza = Restaurant('Pizza Express', 'Italiana')
+
 # restaurant_praca.name = 'Praça'
 # restaurant_praca.category = 'Italiana'
 
