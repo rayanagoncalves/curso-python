@@ -2,21 +2,31 @@ class Restaurant:
     restaurants = []
 
     def __init__(self, name, category):
-        self.name = name
-        self.category = category
-        self.active = False
+        self._name = name.title()
+        self._category = category.upper()
+        self._active = False # _ indica que o atributo é protegido
         Restaurant.restaurants.append(self)
 
 
     def __str__(self):
-        return f'{self.name} | {self.category}'
+        return f'{self._name} | {self._category}'
 
-    def list_restaurants():
-        for restaurant in Restaurant.restaurants:
-            print(f'{restaurant.name} | {restaurant.category} | {restaurant.active}')
+    @classmethod
+    def list_restaurants(cls):
+        print(f'{'Nome do restaurante'.ljust(25)} | {'Categoria'.ljust(25)} | Status')
+        for restaurant in cls.restaurants:
+            print(f'{restaurant._name.ljust(25)} | {restaurant._category.ljust(25)} | {restaurant.active}')
 
-restaurant_praca = Restaurant('Praça', 'Gourmet')
-restaurant_pizza = Restaurant('Pizza Express', 'Italiana')
+    @property
+    def active(self):
+        return '☒' if self._active else '☐'
+    
+    def change_status(self):
+        self._active = not self._active
+
+restaurant_praca = Restaurant('praça', 'Gourmet')
+restaurant_praca.change_status()
+restaurant_pizza = Restaurant('pizza Express', 'Italiana')
 
 # restaurant_praca.name = 'Praça'
 # restaurant_praca.category = 'Italiana'
