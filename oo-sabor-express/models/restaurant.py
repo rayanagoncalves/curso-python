@@ -4,6 +4,9 @@ class Restaurant:
         self.category = category
         self.active = False
 
+    def __str__(self):
+        return f'{self.name} | {self.category}'
+
     name = ''
     category = ''
     active = False
@@ -35,5 +38,5 @@ Restaurant.name = 'Bistrô'
 
 print(f'Nome: {restaurant_praca.name} - Categoria: {restaurant_praca.category}')
 
-print(vars(restaurant_praca))
-print(vars(restaurant_pizza))
+print(restaurant_praca)
+print(restaurant_pizza)
