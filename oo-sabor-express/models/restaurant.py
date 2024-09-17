@@ -24,9 +24,9 @@ class Restaurant:
     def change_status(self):
         self._active = not self._active
 
-restaurant_praca = Restaurant('praça', 'Gourmet')
-restaurant_praca.change_status()
-restaurant_pizza = Restaurant('pizza Express', 'Italiana')
+# restaurant_praca = Restaurant('praça', 'Gourmet')
+# restaurant_praca.change_status()
+# restaurant_pizza = Restaurant('pizza Express', 'Italiana')
 
 # restaurant_praca.name = 'Praça'
 # restaurant_praca.category = 'Italiana'
@@ -56,4 +56,4 @@ restaurant_pizza = Restaurant('pizza Express', 'Italiana')
 # print(restaurant_praca)
 # print(restaurant_pizza)
 
-Restaurant.list_restaurants()
+# Restaurant.list_restaurants()
