@@ -29,6 +29,17 @@ class Restaurant:
         rating = Rating(client, rating)
         self._rating.append(rating)
 
+    @property
+    def rating_average(self):
+        if not self._rating:
+            return 0
+    
+        sum_rating = sum(rating._rating for rating in self._rating)
+        quantity_rating = len(self._rating)
+        average = round(sum_rating/quantity_rating, 1)
+
+        return average
+
 
 # restaurant_praca = Restaurant('praça', 'Gourmet')
 # restaurant_praca.change_status()
