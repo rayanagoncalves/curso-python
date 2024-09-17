@@ -1,4 +1,5 @@
-from rating import Rating
+from models.rating import Rating
+
 class Restaurant:
     restaurants = []
 
@@ -14,9 +15,9 @@ class Restaurant:
 
     @classmethod
     def list_restaurants(cls):
-        print(f'{'Nome do restaurante'.ljust(25)} | {'Categoria'.ljust(25)} | Status')
+        print(f'{'Nome do restaurante'.ljust(25)} | {'Categoria'.ljust(25)} | {'Avaliação'.ljust(25)} | Status')
         for restaurant in cls.restaurants:
-            print(f'{restaurant._name.ljust(25)} | {restaurant._category.ljust(25)} | {restaurant.active}')
+            print(f'{restaurant._name.ljust(25)} | {restaurant._category.ljust(25)} | {str(restaurant.rating_average).ljust(25)} | {restaurant.active}')
 
     @property
     def active(self):
