@@ -1,3 +1,4 @@
+from rating import Rating
 class Restaurant:
     restaurants = []
 
@@ -5,8 +6,8 @@ class Restaurant:
         self._name = name.title()
         self._category = category.upper()
         self._active = False # _ indica que o atributo é protegido
+        self._rating = []
         Restaurant.restaurants.append(self)
-
 
     def __str__(self):
         return f'{self._name} | {self._category}'
@@ -23,6 +24,11 @@ class Restaurant:
     
     def change_status(self):
         self._active = not self._active
+
+    def receive_rating(self, client, rating):
+        rating = Rating(client, rating)
+        self._rating.append(rating)
+
 
 # restaurant_praca = Restaurant('praça', 'Gourmet')
 # restaurant_praca.change_status()
